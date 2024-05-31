@@ -17,7 +17,7 @@ function UserTable() {
     }, []);
 
     const fetchUsers = () => {
-        fetch('http://oasis-final-directory.onrender.com/Doctors/view')
+        fetch('https://oasis-final-directory.onrender.com/Doctors/view')
             .then(response => response.json())
             .then(data => setUsers(data))
             .catch(error => {
@@ -48,7 +48,7 @@ function UserTable() {
     };
 
     const verifyUser = (id) => {
-        fetch(`http://oasis-final-directory.onrender.com/Doctors/verify/${id}`, {
+        fetch(`https://oasis-final-directory.onrender.com/Doctors/verify/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
         })
@@ -70,7 +70,7 @@ function UserTable() {
 
     const deleteUser = (id) => {
         if (window.confirm('Are you sure you want to delete this user?')) {
-            fetch(`http://oasis-final-directory.onrender.com/Doctors/delete/${id}`, {
+            fetch(`https://oasis-final-directory.onrender.com/Doctors/delete/${id}`, {
                 method: 'DELETE',
             })
                 .then(response => {
@@ -112,7 +112,7 @@ function UserTable() {
             return;
         }
 
-        fetch(`http://oasis-final-directory.onrender.com/Doctors/update/${editFormData._id}`, {
+        fetch(`https://oasis-final-directory.onrender.com/Doctors/update/${editFormData._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ function PaymentTable() {
     const fetchUserDetails = () => {
         const token = localStorage.getItem('token'); // Assuming token is stored in local storage
         if (token) {
-            fetch('http://oasis-final-directory.onrender.com/user/details', {
+            fetch('https://oasis-final-directory.onrender.com/user/details', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -38,7 +38,7 @@ function PaymentTable() {
     };
 
     const fetchPayments = () => {
-        fetch('http://oasis-final-directory.onrender.com/stripe/payments')
+        fetch('https://oasis-final-directory.onrender.com/stripe/payments')
         .then(response => response.json())
         .then(data => {
             console.log('Fetched payments data:', data); // Log the fetched data
@@ -137,7 +137,7 @@ export default PaymentTable;
 //     }, []);
 
 //     const fetchPayments = () => {
-//         fetch('http://oasis-final-directory.onrender.com/stripe/payments-with-users')
+//         fetch('https://oasis-final-directory.onrender.com/stripe/payments-with-users')
 //             .then(response => response.json())
 //             .then(data => setPayments(data))
 //             .catch(error => {

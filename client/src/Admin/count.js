@@ -15,11 +15,11 @@ function AdminDashboard() {
     const fetchCounts = async () => {
       try {
         const responses = await Promise.all([
-          fetch('http://oasis-final-directory.onrender.com/count/users'),
-          fetch('http://oasis-final-directory.onrender.com/count/doctors'),
-          fetch('http://oasis-final-directory.onrender.com/count/technicians'),
-          fetch('http://oasis-final-directory.onrender.com/count/consumers'),
-          fetch('http://oasis-final-directory.onrender.com/count/payments'),
+          fetch('https://oasis-final-directory.onrender.com/count/users'),
+          fetch('https://oasis-final-directory.onrender.com/count/doctors'),
+          fetch('https://oasis-final-directory.onrender.com/count/technicians'),
+          fetch('https://oasis-final-directory.onrender.com/count/consumers'),
+          fetch('https://oasis-final-directory.onrender.com/count/payments'),
         ]);
 
         // Check for non-OK responses

@@ -14,7 +14,7 @@ const Profile = () => {
         const decodedToken = jwtDecode(token);
         const userId = decodedToken.id; // Adjust based on your token's structure
 
-        fetch(`http://oasis-final-directory.onrender.com/SignUp/view/${userId}`, {
+        fetch(`https://oasis-final-directory.onrender.com/SignUp/view/${userId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

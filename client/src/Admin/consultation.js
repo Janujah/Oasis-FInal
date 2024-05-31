@@ -10,7 +10,7 @@ function UserTable() {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch('http://oasis-final-directory.onrender.com/consult/view');
+                const response = await fetch('https://oasis-final-directory.onrender.com/consult/view');
                 const data = await response.json();
                 setUsers(data);
             } catch (error) {
@@ -47,7 +47,7 @@ function UserTable() {
 
     const verifyUser = async (id) => {
         try {
-            const response = await fetch(`http://oasis-final-directory.onrender.com/consult/verify/${id}`, {
+            const response = await fetch(`https://oasis-final-directory.onrender.com/consult/verify/${id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
             });
@@ -67,7 +67,7 @@ function UserTable() {
     const deleteUser = async (id) => {
         if (window.confirm('Are you sure you want to delete this user?')) {
             try {
-                const response = await fetch(`http://oasis-final-directory.onrender.com/consult/delete/${id}`, {
+                const response = await fetch(`https://oasis-final-directory.onrender.com/consult/delete/${id}`, {
                     method: 'DELETE',
                 });
                 if (!response.ok) {
@@ -107,7 +107,7 @@ function UserTable() {
         }
 
         try {
-            const response = await fetch(`http://oasis-final-directory.onrender.com/consult/update/${editFormData._id}`, {
+            const response = await fetch(`https://oasis-final-directory.onrender.com/consult/update/${editFormData._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

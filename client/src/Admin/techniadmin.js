@@ -12,7 +12,7 @@ const AdminProductTable = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://oasis-final-directory.onrender.com/products/all');
+        const response = await fetch('https://oasis-final-directory.onrender.com/products/all');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

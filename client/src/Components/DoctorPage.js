@@ -10,7 +10,7 @@ function DoctorPage() {
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
-        fetch('http://oasis-final-directory.onrender.com/Doctors/view')
+        fetch('https://oasis-final-directory.onrender.com/Doctors/view')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

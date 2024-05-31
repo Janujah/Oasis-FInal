@@ -40,7 +40,7 @@ const AddProduct = () => {
       formData.append('userEmail', userEmail);
       formData.append('userName', userName);
 
-      const response = await fetch('http://oasis-final-directory.onrender.com/products/add', {
+      const response = await fetch('https://oasis-final-directory.onrender.com/products/add', {
         method: 'POST',
         body: formData,
       });

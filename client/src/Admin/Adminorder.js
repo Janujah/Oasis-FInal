@@ -250,7 +250,7 @@ function UserTable() {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch('http://localhost:3001/order/orders');
+                const response = await fetch('http://oasis-final-directory.onrender.com/order/orders');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

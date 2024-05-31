@@ -38,7 +38,7 @@ const OrderForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://oasis-final-directory.onrender.com/order', {
+      const response = await fetch('https://oasis-final-directory.onrender.com/order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const OrderForm = () => {
 
   const handleToken = async (token) => {
     try {
-      const response = await fetch('http://oasis-final-directory.onrender.com/booking/payment', {
+      const response = await fetch('https://oasis-final-directory.onrender.com/booking/payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ const OrderForm = () => {
       const data = await response.json();
       toast.success('Payment Successful!', { position: 'bottom-right' });
 
-      const addToDashboardResponse = await fetch('http://oasis-final-directory.onrender.com/booking/payment/success', {
+      const addToDashboardResponse = await fetch('https://oasis-final-directory.onrender.com/booking/payment/success', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

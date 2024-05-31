@@ -66,7 +66,7 @@ function SignUpPage() {
         confirmPassword
       };
 
-      fetch('http://oasis-final-directory.onrender.com/SignUp/create', {
+      fetch('https://oasis-final-directory.onrender.com/SignUp/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

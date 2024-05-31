@@ -47,48 +47,48 @@ function UserTable() {
         ));
     };
 
-    const verifyUser = (id) => {
-        fetch(`https://oasis-final-directory.onrender.com/SignUp/verify/${id}`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(() => {
-                alert('User verified successfully');
-                fetchUsers();
-            })
-            .catch(error => {
-                console.error('Error verifying user:', error);
-                alert(`Failed to verify the user: ${error.message}`);
-            });
-    };
+    // const verifyUser = (id) => {
+    //     fetch(`https://oasis-final-directory.onrender.com/SignUp/verify/${id}`, {
+    //         method: 'PATCH',
+    //         headers: { 'Content-Type': 'application/json' },
+    //     })
+    //         .then(response => {
+    //             if (!response.ok) {
+    //                 throw new Error(`HTTP error! status: ${response.status}`);
+    //             }
+    //             return response.json();
+    //         })
+    //         .then(() => {
+    //             alert('User verified successfully');
+    //             fetchUsers();
+    //         })
+    //         .catch(error => {
+    //             console.error('Error verifying user:', error);
+    //             alert(`Failed to verify the user: ${error.message}`);
+    //         });
+    // };
 
-    const deleteUser = (id) => {
-        if (window.confirm('Are you sure you want to delete this user?')) {
-            fetch(`https://oasis-final-directory.onrender.com/SignUp/delete/${id}`, {
-                method: 'DELETE',
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    alert(data.message || 'User deleted successfully');
-                    fetchUsers();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Failed to delete the user.');
-                });
-        }
-    };
+    // const deleteUser = (id) => {
+    //     if (window.confirm('Are you sure you want to delete this user?')) {
+    //         fetch(`https://oasis-final-directory.onrender.com/SignUp/delete/${id}`, {
+    //             method: 'DELETE',
+    //         })
+    //             .then(response => {
+    //                 if (!response.ok) {
+    //                     throw new Error('Network response was not ok');
+    //                 }
+    //                 return response.json();
+    //             })
+    //             .then(data => {
+    //                 alert(data.message || 'User deleted successfully');
+    //                 fetchUsers();
+    //             })
+    //             .catch(error => {
+    //                 console.error('Error:', error);
+    //                 alert('Failed to delete the user.');
+    //             });
+    //     }
+    // };
 
     const openEditModal = (user) => {
         setEditFormData(user);

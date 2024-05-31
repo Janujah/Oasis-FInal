@@ -3,8 +3,8 @@ const Order = require('../Models/orderModel');
 // Create new order
 exports.createOrder = async (req, res) => {
   try {
-    const { productId, customerName, address, phoneNumber } = req.body;
-    const newOrder = new Order({ productId, customerName, address, phoneNumber });
+    const { productName, customerName, address, phoneNumber } = req.body;
+    const newOrder = new Order({ productName, customerName, address, phoneNumber  });
     await newOrder.save();
     res.status(201).send('Order placed successfully');
   } catch (error) {
@@ -16,12 +16,11 @@ exports.createOrder = async (req, res) => {
 // Read all orders
 exports.getAllOrders = async (req, res) => {
   try {
-    const orders = await Order.find().populate('productId');
-    res.status(200).json(orders);
-  } catch (error) {
-    console.error('Error fetching orders:', error);
-    res.status(500).send('Failed to fetch orders');
-  }
+    const bookings = await Order.find();
+    res.status(200).send(bookings);
+} catch (error) {
+    res.status(500).send(error);
+}
 };
 
 // Read single order by ID

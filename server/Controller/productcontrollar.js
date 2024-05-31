@@ -1,45 +1,3 @@
-// // controllers/productController.js
-
-// const Product = require('../Models/productmodel');
-// const multer = require('multer');
-
-// // Multer configuration
-// const storage = multer.diskStorage({
-//   destination: function(req, file, cb) {
-//     cb(null, 'uploads/');
-//   },
-//   filename: function(req, file, cb) {
-//     cb(null, file.originalname);
-//   }
-// });
-// const upload = multer({ storage: storage });
-
-// // Controller function to add a new product
-// exports.addProduct = async (req, res) => {
-//   try {
-//     const { productName, price } = req.body;
-//     const imageUrl = req.file ? req.file.path : null;
-
-//     const product = new Product({ productName, price, imageUrl });
-//     await product.save();
-//     res.status(201).json({ message: 'Product added successfully', product });
-//   } catch (error) {
-//     res.status(500).json({ error: 'Failed to add product' });
-//   }
-// };
-
-// // const Product = require('../models/Product');
-
-// // Controller function to fetch all products
-// exports.getAllProducts = async (req, res) => {
-//   try {
-//     const products = await Product.find();
-//     res.status(200).json(products);
-//   } catch (error) {
-//     res.status(500).json({ error: 'Failed to fetch products' });
-//   }
-// };
-
 const Product = require('../Models/productmodel');
 const { uploaded } = require('../utils/cloudinary');
 
@@ -88,5 +46,19 @@ exports.getProductsByUserName = async (req, res) => {
   } catch (error) {
     console.error('Error fetching products:', error);
     res.status(500).json({ error: 'Failed to fetch products' });
+  }
+};
+
+
+
+exports.deleteUser = async (req, res) => {
+  try {
+      const deletedDoctor = await Doctor.findByIdAndDelete(req.params.id);
+      if (!deletedDoctor) {
+          return res.status(404).json({ message: 'Doctor not found' });
+      }
+      res.status(200).json({ message: 'Doctor deleted successfully' });
+  } catch (error) {
+      res.status(500).json({ message: 'Error deleting doctor', error });
   }
 };

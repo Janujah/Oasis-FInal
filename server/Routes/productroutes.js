@@ -6,7 +6,9 @@ const productController = require('../Controller/productcontrollar');
 router.post('/add', productController.addProduct);
 
 // Route to get all products
-router.get('/all', productController.getAllProducts);
+router.get('/all', productController.getAllProducts)
+router.delete('/delete/:id', productController.deleteUser);
+;
 
 router.get('/user/:userName', productController.getProductsByUserName);
 module.exports = router;

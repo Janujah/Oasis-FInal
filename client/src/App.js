@@ -40,6 +40,8 @@ import Payment from './Components/payment'
 import Addproduct from './Technicians/addproduct'
 import ProfileUser from './Components/profile'
 import OrderForm from './Components/orderform'
+import AdminOrder from './Admin/Adminorder'
+
 
 
 
@@ -94,7 +96,9 @@ function App() {
       <Route path="/doctors/Booking/payment" element={<Payment/>} />
       <Route path="/Technicians/addproduct" element={<Addproduct/>} />
       <Route path="/profile" element={<ProfileUser/>} />
-      <Route path="/our-services/equipments/order" element={<OrderForm/>} />
+      <Route path="/order/:productId" element={<OrderForm/>} />
+      <Route path="/Admin/orders" element={<AdminOrder/>} />
+
 
 
 

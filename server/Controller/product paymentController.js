@@ -1,3 +1,4 @@
+
 const stripe = require("stripe")("sk_test_51PGywdBwqNocB2yIFr1uvOiTCHI6UZJ7NhyHzvS5ItGnGYZGX4dSscfgMORzYm7PXM2qqFMuwf8XsvnCryXnYNar00bnmdnWol");
 // const { v4: uuidv4 } = require('uuid');
 const Transaction = require('../Models/PaymentModel');
@@ -19,7 +20,7 @@ exports.payMent = async (req, res) => {
       currency: 'lkr',
       customer: customer.id,
       receipt_email: token.email,
-      description: 'Booking for Doctor consultation',
+      description: 'For Product Buy',
       shipping: {
         name: token.card.name,
         address: {
@@ -71,4 +72,3 @@ exports.PaymentDetails = async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch transaction details' });
     }
   };
-  

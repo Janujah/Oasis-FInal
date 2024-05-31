@@ -16,7 +16,7 @@ function ProductPage() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:3001/products/all');
+                const response = await fetch('http://oasis-final-directory.onrender.com/products/all');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

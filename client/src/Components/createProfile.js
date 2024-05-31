@@ -86,7 +86,7 @@ function ProfilePage({ setUserName }) {
         data.append('availability', JSON.stringify(formData.availability));
 
         try {
-            const response = await fetch('http://localhost:3001/Doctors/create', {
+            const response = await fetch('http://oasis-final-directory.onrender.com/Doctors/create', {
                 method: 'POST',
                 body: data,
             });

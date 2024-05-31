@@ -112,7 +112,7 @@ function BookingForm() {
         }
 
         try {
-            const response = await fetch('http://localhost:3001/consult/create', {
+            const response = await fetch('http://oasis-final-directory.onrender.com/consult/create', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -132,7 +132,7 @@ function BookingForm() {
 
     const handleToken = async (token) => {
         try {
-          const response = await fetch('http://localhost:3001/booking/payment', {
+          const response = await fetch('http://oasis-final-directory.onrender.com/booking/payment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ token, booking: formData })
@@ -143,7 +143,7 @@ function BookingForm() {
             toast.success('Payment Successful!', { position: 'bottom-right' });
       
             // After successful payment, add the booking to the doctor's dashboard
-            const addToDashboardResponse = await fetch('http://localhost:3001/booking/payment/success', {
+            const addToDashboardResponse = await fetch('http://oasis-final-directory.onrender.com/booking/payment/success', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ bookingId: data.bookingId, doctorId: data.doctorId })

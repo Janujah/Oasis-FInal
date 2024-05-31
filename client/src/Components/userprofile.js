@@ -10,7 +10,7 @@ function ProfileDetailsPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:3001/Doctors/view/${id}`)
+        fetch(`http://oasis-final-directory.onrender.com/Doctors/view/${id}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

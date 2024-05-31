@@ -16,7 +16,7 @@ function PaymentTable() {
     }, []);
 
     const fetchUserDetails = () => {
-        const token = localStorage.getItem('token'); // Assuming token is stored in local storage
+        const token = localStorage.getItem('auth-token'); // Assuming token is stored in local storage
         if (token) {
             fetch('https://oasis-final-directory.onrender.com/user/details', {
                 method: 'GET',

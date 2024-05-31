@@ -26,7 +26,7 @@ function UserTable() {
 
         fetchUsers();
 
-        const newSocket = new WebSocket('ws://oasis-final-directory.onrender.com');
+        const newSocket = new WebSocket('wss://oasis-final-directory.onrender.com');
         newSocket.onopen = () => {
             console.log('WebSocket connection established');
         };

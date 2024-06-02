@@ -8,7 +8,9 @@ function AdminDashboard() {
     doctors: 0,
     technicians: 0,
     consumers: 0,
+    order: 0,
     payments: 0,
+
   });
 
   useEffect(() => {
@@ -19,7 +21,9 @@ function AdminDashboard() {
           fetch('https://oasis-final-directory.onrender.com/count/doctors'),
           fetch('https://oasis-final-directory.onrender.com/count/technicians'),
           fetch('https://oasis-final-directory.onrender.com/count/consumers'),
+          fetch('https://oasis-final-directory.onrender.com/count/order'),
           fetch('https://oasis-final-directory.onrender.com/count/payments'),
+
         ]);
 
         // Check for non-OK responses
@@ -37,7 +41,9 @@ function AdminDashboard() {
           doctors: data[1].count,
           technicians: data[2].count,
           consumers: data[3].count,
-          payments: data[4].count,
+          order: data[4].count,
+          payments: data[5].count,
+
         });
       } catch (error) {
         console.error('Error fetching counts:', error);
@@ -65,7 +71,11 @@ function AdminDashboard() {
         </div>
         <div className="count-card">
           <p style={{fontSize:'30px', color:'white'}}>{counts.consumers}</p>
-          <h3 style={{fontSize:'30px', color:'white'}}>Consumers</h3>
+          <h3 style={{fontSize:'30px', color:'white'}}>Consultations</h3>
+        </div>
+        <div className="count-card">
+          <p style={{fontSize:'30px', color:'white'}}>{counts.order}</p>
+          <h3 style={{fontSize:'30px', color:'white'}}>Orders</h3>
         </div>
         <div className="count-card">
           <p style={{fontSize:'30px', color:'white'}}>{counts.payments}</p>

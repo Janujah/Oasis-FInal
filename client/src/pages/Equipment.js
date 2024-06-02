@@ -1,3 +1,6 @@
+
+
+
 import React, { useState, useEffect } from 'react';
 import Nav from '../Components/navbar';
 import { Link, useNavigate } from 'react-router-dom';
@@ -86,9 +89,9 @@ function ProductPage() {
                     }}
                 />
             </div>
-            <div className="product-grid" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div className="doctor-grid" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                 {currentProducts.map(product => (
-                    <div key={product._id} className="product-card" style={{ margin: '10px', border: '1px solid #ccc', padding: '20px', width: '300px' }}>
+                    <div key={product._id} className="doctor-card" style={{ margin: '10px', border: '1px solid #ccc', padding: '20px', width: '300px' }}>
                         <Link to={`/product/${product._id}`} className="product-link" style={{ textDecoration: 'none', color: 'black' }}>
                             <img src={product.imageUrl} alt={product.productName} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                             <h3>{product.productName}</h3>

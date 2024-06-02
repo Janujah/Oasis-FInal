@@ -21,11 +21,7 @@ function UserTable() {
 
         fetchUsers();
 
-        const newSocket = new WebSocket('wss://oasis-final-directory.onrender.com');
-        newSocket.onmessage = (event) => {
-            setUsers(JSON.parse(event.data));
-        };
-        return () => newSocket.close();
+
     }, []);
 
     const indexOfLastItem = currentPage * itemsPerPage;

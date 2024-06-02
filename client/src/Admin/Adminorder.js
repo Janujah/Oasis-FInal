@@ -25,24 +25,6 @@ function UserTable() {
         };
 
         fetchUsers();
-
-        const newSocket = new WebSocket('wss://oasis-final-directory.onrender.com');
-        newSocket.onopen = () => {
-            console.log('WebSocket connection established');
-        };
-        newSocket.onmessage = (event) => {
-            setUsers(JSON.parse(event.data));
-        };
-        newSocket.onerror = (error) => {
-            console.error('WebSocket error:', error);
-        };
-        newSocket.onclose = () => {
-            console.log('WebSocket connection closed');
-        };
-
-        return () => {
-            newSocket.close();
-        };
     }, []);
 
     const indexOfLastItem = currentPage * itemsPerPage;

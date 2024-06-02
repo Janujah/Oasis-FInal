@@ -13,7 +13,7 @@ const cors = require('cors');
 
 app.use(
     cors({
-      origin: ["https://oasis-indol.vercel.app"],
+      origin: ["https://oasis-f-inal-directory.vercel.app"],
       methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
       credentials: true,
     })

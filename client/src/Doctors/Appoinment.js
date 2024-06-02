@@ -30,7 +30,6 @@ function UserTable() {
 
         fetchUsers();
 
-
     }, []);
 
     const filteredUsers = users.filter(user => user.doctorName === doctorName);

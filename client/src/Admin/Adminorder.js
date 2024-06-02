@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect } from 'react';
 import Navbar from './count'; // Ensure the component import matches the actual file name and path.
 
@@ -12,7 +11,7 @@ function UserTable() {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch('http://oasis-final-directory.onrender.com/order/orders');
+                const response = await fetch('http://localhost:3002/order/orders');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -25,6 +24,7 @@ function UserTable() {
         };
 
         fetchUsers();
+
     }, []);
 
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -47,62 +47,6 @@ function UserTable() {
     return (
         <div className="user-management-container">
             <Navbar />
-            {/* {editFormData && (
-                <div className="edit-modal">
-                    <form onSubmit={submitEditForm}>
-                        <label>Name:</label>
-                        <input
-                            type="text"
-                            name="fullName"
-                            value={editFormData.fullName || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Email:</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={editFormData.email || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Registered ID:</label>
-                        <input
-                            type="text"
-                            name="registeredId"
-                            value={editFormData.registeredId || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Working Hospitals:</label>
-                        <input
-                            type="text"
-                            name="workingHospitals"
-                            value={editFormData.workingHospitals || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Age:</label>
-                        <input
-                            type="number"
-                            name="age"
-                            value={editFormData.age || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Contact No:</label>
-                        <input
-                            type="text"
-                            name="contactNo"
-                            value={editFormData.contactNo || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Bio:</label>
-                        <textarea
-                            name="bio"
-                            value={editFormData.bio || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <button type="submit">Save Changes</button>
-                        <button type="button" onClick={closeEditModal}>Cancel</button>
-                    </form>
-                </div>
-            )} */}
             <div className="user-table-container">
                 <table className="user-table">
                     <thead>
@@ -110,7 +54,7 @@ function UserTable() {
                             <th>Customer Name</th>
                             <th>Address</th>
                             {/* <th>Gender</th> */}
-                            <th>Email</th>
+                            {/* <th>Email</th> */}
                             <th>Phone</th>
                             <th>Date</th>
                         </tr>
@@ -121,7 +65,7 @@ function UserTable() {
                                 {/* <td>{booking.ProductId}</td> */}
                                 <td>{booking.customerName}</td>
                                 <td>{booking.address}</td>
-                                <td>{booking.email}</td>
+                                {/* <td>{booking.email}</td> */}
                                 <td>{booking.phoneNumber}</td>
                                 <td>{new Date(booking.orderDate).toLocaleDateString()}</td>
                             </tr>

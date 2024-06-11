@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-exports.checkAuthenticated = (req, res, next) => {
+const checkAuthenticated = (req, res, next) => {
     const token = req.cookies.token;
     
     if (token) {
@@ -28,4 +28,4 @@ exports.checkAuthenticated = (req, res, next) => {
     }
 };
 
-// module.exports = checkAuthenticated;
+module.exports = checkAuthenticated;

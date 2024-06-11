@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { v4 as uuidv4 } from 'uuid'; // Import UUID to generate unique file names
+import {jwtDecode} from 'jwt-decode'; // Import jwt-decode to decode JWT tokens
 
 function ProfilePage({ setUserName }) {
     const [formData, setFormData] = useState({
@@ -20,6 +21,19 @@ function ProfilePage({ setUserName }) {
     const [profileImage, setProfileImage] = useState(null);
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Decode JWT token and extract full name and email
+        const token = localStorage.getItem('auth-token'); // Adjust based on where you store your token
+        if (token) {
+            const decodedToken = jwtDecode(token);
+            setFormData(prev => ({
+                ...prev,
+                fullName: decodedToken.userName || '',
+                email: decodedToken.email || ''
+            }));
+        }
+    }, []);
 
     const validateForm = () => {
         const newErrors = {};
@@ -105,7 +119,7 @@ function ProfilePage({ setUserName }) {
         }
     };
 
-    const renderFormInput = (key, label) => (
+    const renderFormInput = (key, label, disabled = false) => (
         <div key={key}>
             <label htmlFor={key}>{label}:</label>
             <input
@@ -114,6 +128,7 @@ function ProfilePage({ setUserName }) {
                 type={key === 'age' || key === 'contactNo' ? 'number' : 'text'}
                 value={formData[key]}
                 onChange={handleChange}
+                disabled={disabled}
                 style={{ padding: "8px", margin: "5px 0" }}
             />
             {errors[key] && <div style={{ color: "red" }}>{errors[key]}</div>}
@@ -135,7 +150,9 @@ function ProfilePage({ setUserName }) {
                         style={{ margin: "5px 0" }}
                     />
                     {profileImage && <img src={URL.createObjectURL(profileImage)} alt="Profile" style={{ width: "200px", height: "200px", marginBottom: "10px" }} />}
-                    {Object.keys(formData).filter(key => key !== 'availability').map(key => (
+                    {renderFormInput('fullName', 'Full Name', true)}
+                    {renderFormInput('email', 'Email', true)}
+                    {Object.keys(formData).filter(key => key !== 'availability' && key !== 'fullName' && key !== 'email').map(key => (
                         renderFormInput(key, key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim())
                     ))}
                     {formData.availability.map((slot, index) => (

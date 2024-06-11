@@ -1,8 +1,8 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import StripeCheckout from 'react-stripe-checkout';
 import { useLocation, useNavigate } from 'react-router-dom';
+import {jwtDecode} from 'jwt-decode';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -35,6 +35,21 @@ function BookingForm() {
         price: 1500
     });
     const [paymentProcessed, setPaymentProcessed] = useState(false);
+
+    useEffect(() => {
+        // Assuming the JWT token is stored in localStorage
+        const token = localStorage.getItem('auth-token');
+        if (token) {
+            const decodedToken = jwtDecode(token);
+            if (decodedToken) {
+                setFormData(prev => ({
+                    ...prev,
+                    fullName: decodedToken.userName || '',
+                    email: decodedToken.email || ''
+                }));
+            }
+        }
+    }, []);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -132,37 +147,37 @@ function BookingForm() {
 
     const handleToken = async (token) => {
         try {
-          const response = await fetch('https://oasis-final-directory.onrender.com/booking/payment', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ token, booking: formData })
-          });
-      
-          if (response.ok) {
-            const data = await response.json();
-            toast.success('Payment Successful!', { position: 'bottom-right' });
-      
-            // After successful payment, add the booking to the doctor's dashboard
-            const addToDashboardResponse = await fetch('https://oasis-final-directory.onrender.com/booking/payment/success', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ bookingId: data.bookingId, doctorId: data.doctorId })
+            const response = await fetch('https://oasis-final-directory.onrender.com/booking/payment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token, booking: formData })
             });
-      
-            if (addToDashboardResponse.ok) {
-              toast.success('Booking added to doctor\'s dashboard!', { position: 'bottom-right' });
-              navigate('/');
+
+            if (response.ok) {
+                const data = await response.json();
+                toast.success('Payment Successful!', { position: 'bottom-right' });
+
+                // After successful payment, add the booking to the doctor's dashboard
+                const addToDashboardResponse = await fetch('https://oasis-final-directory.onrender.com/booking/payment/success', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ bookingId: data.bookingId, doctorId: data.doctorId })
+                });
+
+                if (addToDashboardResponse.ok) {
+                    toast.success('Booking added to doctor\'s dashboard!', { position: 'bottom-right' });
+                    navigate('/');
+                } else {
+                    throw new Error('Failed to add booking to doctor\'s dashboard');
+                }
             } else {
-              throw new Error('Failed to add booking to doctor\'s dashboard');
+                throw new Error('Payment failed');
             }
-          } else {
-            throw new Error('Payment failed');
-          }
         } catch (error) {
-        //   toast.error('Payment failed. Please try again.', { position: 'bottom-right' });
-          console.error(error);
+            toast.error('Payment failed. Please try again.', { position: 'bottom-right' });
+            console.error(error);
         }
-      };
+    };
 
     return (
         <div className="container mt-5 mb-5">
@@ -202,6 +217,7 @@ function BookingForm() {
                         name="preferredTime"
                         value={formData.preferredTime}
                         onChange={handleChange}
+                        disabled
                     />
                     {errors.preferredTime && <small className="text-danger">{errors.preferredTime}</small>}
                 </div>
@@ -214,6 +230,7 @@ function BookingForm() {
                         name="fullName"
                         value={formData.fullName}
                         onChange={handleChange}
+                        disabled
                     />
                     {errors.fullName && <small className="text-danger">{errors.fullName}</small>}
                 </div>
@@ -254,6 +271,8 @@ function BookingForm() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        disabled
+
                     />
                     {errors.email && <small className="text-danger">{errors.email}</small>}
                 </div>

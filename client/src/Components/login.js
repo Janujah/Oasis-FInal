@@ -128,7 +128,7 @@ function LoginPage() {
     setError('');
 
     try {
-      const response = await fetch('https://oasis-final-directory.onrtender.com/user/login', {
+      const response = await fetch('https://oasis-final-directory.onrender.com/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1210,7 +1210,7 @@ function BookingForm({ doctorName, availability, doctorId, onClose }) {
         e.preventDefault();
         if (currentPage === 2 && validatePage2()) {
             try {
-                const response = await fetch('https://your-backend-url/appointments/book', {
+                const response = await fetch('https://oasis-final-directory.onrender.com/consult/create', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

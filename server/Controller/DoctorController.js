@@ -20,6 +20,8 @@ exports.createUser = async (req, res) => {
             bio,
             registeredId,
             workingHospitals,
+            fees,
+            accountNo,
             age,
             contactNo,
             availability 
@@ -41,6 +43,8 @@ exports.createUser = async (req, res) => {
                 bio,
                 registeredId,
                 workingHospitals,
+                fees,
+                accountNo,
                 age,
                 contactNo,
                 availability: parsedAvailability, // Use the parsed availability data

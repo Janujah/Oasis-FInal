@@ -18,6 +18,8 @@ const doctorSchema = new mongoose.Schema({
     age: { type: Number, required: true },
     contactNo: { type: String, required: true, minlength: 10, maxlength: 10 },
     availability: [availabilitySchema],
+    fees: {type:String, required:true},
+    accountNo: {type:String, required:true},
     profileImage: {
         type: String,
         required: true

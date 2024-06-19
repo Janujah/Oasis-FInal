@@ -58,3 +58,31 @@ exports.deleteBooking = async (req, res) => {
         res.status(500).json({ message: 'Something went wrong' });
     }
 };
+
+exports.updateBookings = async (req, res) => {
+    const updates = Object.keys(req.body);
+    const allowedUpdates = ['isUserComplete', 'isDocComplete'];
+    const isValidOperation = updates.every(update => allowedUpdates.includes(update));
+
+    if (!isValidOperation) {
+        return res.status(400).send({ error: 'Invalid updates!' });
+    }
+
+    try {
+        const booking = await Booking.findById(req.params.id);
+        if (!booking) {
+            return res.status(404).send();
+        }
+
+        updates.forEach(update => booking[update] = req.body[update]);
+        
+        if (booking.isUserComplete && booking.isDocComplete) {
+            booking.forAdmin = true;
+        }
+
+        await booking.save();
+        res.status(200).send(booking);
+    } catch (error) {
+        res.status(400).send(error);
+    }
+};

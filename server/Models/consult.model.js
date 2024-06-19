@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
@@ -54,6 +53,18 @@ const bookingSchema = new mongoose.Schema({
         required: true
     },
     paymentProcessed: {
+        type: Boolean,
+        default: false
+    },
+    isUserComplete: {
+        type: Boolean,
+        default: false
+    },
+    isDocComplete: {
+        type: Boolean,
+        default: false
+    },
+    forAdmin: {
         type: Boolean,
         default: false
     },

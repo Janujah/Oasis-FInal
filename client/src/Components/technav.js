@@ -72,7 +72,8 @@ function OrthoResourcesNavbar() {
               <div className="dropdown">
                 <div className="username-container">
                   <button ref={usernameRef} style={{backgroundColor:'transparent',color:'black'}}  onClick={toggleDropdown}>
-                  <b><img src='https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg' style={{height:'70px',borderRadius:'50px'}} ></img></b>
+                  <b>
+                    <img src='https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg' style={{height:'70px',borderRadius:'50px'}} ></img></b>
                   </button>
                 </div>
                 {dropdownOpen && (

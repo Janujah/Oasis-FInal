@@ -53,9 +53,7 @@ function Navbar() {
           <li className="nav-item">
             <a className="nav-link" href="/doctors">Home</a>
           </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          {/* <li className="nav-item"> */}
-            {/* <a className="nav-link" href="/doctors/ourservices">Our Services</a> */}
-          {/* </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
+
           <li className="nav-item">
             <a className="nav-link" href="/doctors/Appointment">Appointments</a>
           </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

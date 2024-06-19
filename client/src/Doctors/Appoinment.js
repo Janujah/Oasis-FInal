@@ -137,62 +137,7 @@ function UserTable() {
     return (
         <div className="user-management-container">
             <Navbar />
-            {editFormData && (
-                <div className="edit-modal">
-                    <form onSubmit={submitEditForm}>
-                        <label>Name:</label>
-                        <input
-                            type="text"
-                            name="fullName"
-                            value={editFormData.fullName || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Email:</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={editFormData.email || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Registered ID:</label>
-                        <input
-                            type="text"
-                            name="registeredId"
-                            value={editFormData.registeredId || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Working Hospitals:</label>
-                        <input
-                            type="text"
-                            name="workingHospitals"
-                            value={editFormData.workingHospitals || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Age:</label>
-                        <input
-                            type="number"
-                            name="age"
-                            value={editFormData.age || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Contact No:</label>
-                        <input
-                            type="text"
-                            name="contactNo"
-                            value={editFormData.contactNo || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <label>Bio:</label>
-                        <textarea
-                            name="bio"
-                            value={editFormData.bio || ''}
-                            onChange={handleEditFormChange}
-                        />
-                        <button type="submit">Save Changes</button>
-                        <button type="button" onClick={() => setEditFormData(null)}>Cancel</button>
-                    </form>
-                </div>
-            )}
+
             <div className="user-table-container">
                 <table className="user-table">
                 <thead>

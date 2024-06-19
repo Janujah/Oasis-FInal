@@ -203,9 +203,9 @@ function LoginPage() {
             required
           />
         </div>
-        <div className={styles.forgotPassword}>
+        {/* <div className={styles.forgotPassword}>
           <a href='/forgot-password'>Forgot password?</a>
-        </div>
+        </div> */}
         <button className={styles.loginButton} type="submit" disabled={loading}>
           {loading ? 'Logging in...' : 'Login'}
         </button>

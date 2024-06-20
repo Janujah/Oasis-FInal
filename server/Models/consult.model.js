@@ -40,7 +40,7 @@ const bookingSchema = new mongoose.Schema({
     },
     preferredLanguage: {
         type: String,
-        enum: ['English', 'Spanish', 'Other'],
+        enum: ['English', 'Tamil', 'Sinhala'],
         required: true
     },
     visitedBefore: {

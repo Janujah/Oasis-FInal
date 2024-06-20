@@ -3,8 +3,8 @@ const Order = require('../Models/orderModel');
 // Create new order
 exports.createOrder = async (req, res) => {
   try {
-    const { productName, customerName, address, phoneNumber } = req.body;
-    const newOrder = new Order({ productName, customerName, address, phoneNumber  });
+    const {  customerName, address, phoneNumber } = req.body;
+    const newOrder = new Order({ customerName, address, phoneNumber  });
     await newOrder.save();
     res.status(201).send('Order placed successfully');
   } catch (error) {

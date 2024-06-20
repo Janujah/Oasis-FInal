@@ -8,7 +8,7 @@ router.post('/add', productController.addProduct);
 // Route to get all products
 router.get('/all', productController.getAllProducts)
 router.delete('/delete/:id', productController.deleteUser);
-router.get('/products/:id', productController.getProductById);
+router.get('/products/:productId', productController.getProductById);
 ;
 
 router.get('/user/:userName', productController.getProductsByUserName);

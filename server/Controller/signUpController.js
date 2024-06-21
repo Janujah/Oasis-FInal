@@ -2,11 +2,11 @@ const User = require('../Models/Signupmodel');
 const bcrypt = require("bcrypt");
 exports.createUser = async (req, res) => {
     try {
-        const { userName,Role , email, password } = req.body;        
+        const { userName,Role , email, password ,phoneNumber} = req.body;        
         bcrypt
         .hash(password, 10)
         .then((hash) => {
-          User.create({ userName, email, Role, password: hash })
+          User.create({ userName, email, Role, password: hash, phoneNumber })
             .then((Farmers) => res.json(Farmers))
             .catch((err) => res.json(err));
         });

@@ -14,6 +14,10 @@ const schema = new Mongoose.Schema ({
     Role:{
         type:String,
         enum: ['consumers', 'Doctor', 'Ortho_technician', 'Admin']  
+    },
+    phoneNumber:{
+        type:String,
+        required: true
     }
 },
 { timestamps: true }

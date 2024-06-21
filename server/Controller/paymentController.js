@@ -1,8 +1,8 @@
 const stripe = require("stripe")("sk_test_51PGywdBwqNocB2yIoCnux60sakPEmMZvfzCi2GZaIHoUeSQaSxJfv23pWmWMZefdrFIztNjw28Mk6MTkqMlsKveh006M5Xp3br");
 // const { v4: uuidv4 } = require('uuid');
 const Transaction = require('../Models/PaymentModel');
-const Booking = require('../Models/consult.model');  // Assuming you have a Booking model
-const Doctor = require('../Models/Doctor.model');    // Assuming you have a Doctor model
+const Booking = require('../Models/consult.model');  
+const Doctor = require('../Models/Doctor.model');    
 
 
 exports.payMent = async (req, res) => {

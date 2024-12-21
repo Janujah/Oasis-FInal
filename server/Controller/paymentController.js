@@ -1,4 +1,4 @@
-const stripe = require("stripe")("sk_test_51PGywdBwqNocB2yIoCnux60sakPEmMZvfzCi2GZaIHoUeSQaSxJfv23pWmWMZefdrFIztNjw28Mk6MTkqMlsKveh006M5Xp3br");
+const stripe = require("stripe")("sk_test_51PGywdBwqNocB2yIDwIrXJCSRsaFltLWePb85abFOSVo5wFVkfnGNwoZZyrcbUzV0oq7DqIb22Ap1EgJzzuknZ6G00mVlTOXaA");
 // const { v4: uuidv4 } = require('uuid');
 const Transaction = require('../Models/PaymentModel');
 const Booking = require('../Models/consult.model');  

@@ -1,0 +1,49 @@
+.background {
+    height: 123vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.white-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+    max-width: 1000px;
+    /* color: #0e0737;  */
+    margin-bottom: 300px;
+}
+
+.content h1{
+    color:#0e0737;
+    font-weight: 1000;
+    font-size: 80px;
+}
+
+.content p{
+    font-size: 30px;
+}
+.RU-Bg-color{
+    background: linear-gradient(to bottom,   #FFFCFC,  #AB9551);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+
+  }

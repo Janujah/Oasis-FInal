@@ -1,4 +1,4 @@
-const stripe = require('stripe')('sk_test_51PGywdBwqNocB2yIFr1uvOiTCHI6UZJ7NhyHzvS5ItGnGYZGX4dSscfgMORzYm7PXM2qqFMuwf8XsvnCryXnYNar00bnmdnWol');
+const stripe = require('stripe')('sk_test_51PGywdBwqNocB2yIDwIrXJCSRsaFltLWePb85abFOSVo5wFVkfnGNwoZZyrcbUzV0oq7DqIb22Ap1EgJzzuknZ6G00mVlTOXaA');
 
 // Controller function to fetch payment details from Stripe
 exports.getPaymentsFromStripe = async (req, res) => {
